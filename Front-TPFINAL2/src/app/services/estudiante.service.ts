@@ -35,7 +35,7 @@ export class EstudianteService {
   }
 
 
-  getEstudiantesPorDocente(legajoDocente: number): Observable<Estudiante[]> {
+  getEstudiantesPorLegajoDocente(legajoDocente: number): Observable<Estudiante[]> {
     return this.http.get<Estudiante[]>(`${this.apiUrl}/por-docente/${legajoDocente}`);
   }
 

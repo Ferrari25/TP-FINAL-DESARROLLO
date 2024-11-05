@@ -21,6 +21,7 @@ import {EstudianteComponent} from "./components/estudiante/estudiante.component"
 import {TemaComponent} from "./components/tema/tema.component";
 import {CursoComponent} from "./components/curso/curso.component";
 import {CursoDateComponent} from "./components/curso/curso-date/curso-date.component";
+import {EstudiantePorLegajoComponent} from "./components/docente/estudiante-por-legajo/estudiante-por-legajo.component";
 
 
 
@@ -35,6 +36,8 @@ export const routes: Routes = [
   { path: 'update-tema/:id', component: TemaUpdateComponent },
   { path: 'delete-tema/:id', component: TemaDeleteComponent },
 
+
+
   // Ruta para el Dashboard de Docente
   {
     path: 'docente',
@@ -44,6 +47,7 @@ export const routes: Routes = [
       { path: 'update-docente', component: DocenteUpdateComponent },
       { path: 'delete-docente', component: DocenteDeleteComponent },
       { path: 'view-docente', component: DocenteListComponent },
+      { path: 'estudiantes-por-legajo', component: EstudiantePorLegajoComponent },
     ]
   },
 
@@ -66,7 +70,7 @@ export const routes: Routes = [
       { path: 'add-tema', component: TemaAddComponent },
       { path: 'update-tema', component: TemaUpdateComponent },
       { path: 'delete-tema', component: TemaDeleteComponent },
-      { path: 'view-tema', component: TemasListComponent }
+      { path: 'view-tema', component: TemasListComponent },
     ]
   },
 

@@ -1,36 +1,40 @@
-<div class="container">
-  <h2>Estudiantes por Legajo del Docente</h2>
 
-  <form (ngSubmit)="cargarEstudiantesPorDocente()">
-    <label for="docenteLegajo">Legajo del Docente:</label>
-    <input
-      type="text"
-      id="docenteLegajo"
-      [(ngModel)]="docenteLegajo"
-      name="docenteLegajo"
-      required
-    />
-    <button type="submit">Ver Estudiantes</button>
+<div class="container">
+  <h2>Buscar Estudiantes por legajo Docente</h2>
+
+  <form [formGroup]="docenteLegajoForm" (ngSubmit)="cargarEstudiantesPorDocente()">
+    <div class="form-group">
+      <label for="docenteLegajo">Estudiantes por Legajo de Docente: </label>
+      <input id="docenteLegajo" formControlName="docenteLegajo" type="number" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Buscar Estudiantes</button>
+    </div>
   </form>
 
-  <table class="table" *ngIf="estudiantes.length > 0">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Fecha de Nacimiento</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let estudiante of estudiantes">
-      <td>{{ estudiante.id }}</td>
-      <td>{{ estudiante.nombre }}</td>
-      <td>{{ estudiante.fechaNacimiento | date: 'dd/MM/yyyy' }}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div *ngIf="estudiantes.length > 0" class="results-section">
+    <h3>Resultados:</h3>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Docente</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let estudiante of estudiantes">
+        <td>{{ estudiante.id }}</td>
+        <td>{{ estudiante.nombre }}</td>
+        <td>{{ estudiante.fechaNacimiento }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <p *ngIf="estudiantes.length === 0 && docenteLegajo">
-    No se encontraron estudiantes para este docente.
-  </p>
+  <div *ngIf="estudiantes.length === 0 && formSubmitted" class="no-results">
+    <p>No se encontraron cursos en la fecha seleccionada.</p>
+  </div>
 </div>

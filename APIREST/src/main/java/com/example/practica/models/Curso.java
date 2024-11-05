@@ -67,7 +67,7 @@ public class Curso {
     public void setFechaFin(LocalDate fechaFin) { this.fechaFin = fechaFin; }
     public void setDocente(Docente docente) { this.docente = docente; }
     public void setPrecio(Double precio) { this.precio = precio; }
-    public void setEstudiantes(List<Estudiante> alumno) { this.estudiantes = estudiantes; }
+    public void setEstudiantes(List<Estudiante> estudiantes) { this.estudiantes = estudiantes; }
 
 }
 
