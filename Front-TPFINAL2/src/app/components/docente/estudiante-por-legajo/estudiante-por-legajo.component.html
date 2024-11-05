@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Estudiantes por Legajo del Docente</h2>
+
+  <form (ngSubmit)="cargarEstudiantesPorDocente()">
+    <label for="docenteLegajo">Legajo del Docente:</label>
+    <input
+      type="text"
+      id="docenteLegajo"
+      [(ngModel)]="docenteLegajo"
+      name="docenteLegajo"
+      required
+    />
+    <button type="submit">Ver Estudiantes</button>
+  </form>
+
+  <table class="table" *ngIf="estudiantes.length > 0">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Fecha de Nacimiento</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let estudiante of estudiantes">
+      <td>{{ estudiante.id }}</td>
+      <td>{{ estudiante.nombre }}</td>
+      <td>{{ estudiante.fechaNacimiento | date: 'dd/MM/yyyy' }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="estudiantes.length === 0 && docenteLegajo">
+    No se encontraron estudiantes para este docente.
+  </p>
+</div>

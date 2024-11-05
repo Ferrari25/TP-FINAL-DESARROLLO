@@ -1,0 +1,12 @@
+<div>
+  <h2>Agregar Estudiante</h2>
+  <form (submit)="onSubmit()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="estudiante.nombre" name="nombre" required>
+
+    <label for="fechaNacimiento">Fecha Nacimiento:</label>
+    <input type="date" id="fechaNacimiento" [(ngModel)]="estudiante.fechaNacimiento" name="descripcion" required>
+
+    <button type="submit">Agregar</button>
+  </form>
+</div>

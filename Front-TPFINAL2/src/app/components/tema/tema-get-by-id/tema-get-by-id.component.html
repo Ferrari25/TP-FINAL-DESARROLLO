@@ -1,0 +1,16 @@
+<div class="contenedor">
+  <div class="formulario">
+    <h2>Buscar Tema por ID</h2>
+    <form (ngSubmit)="onGetTemaById()">
+      <label for="idBuscar">ID:</label>
+      <input type="number" id="idBuscar" [(ngModel)]="idBuscar" name="idBuscar" required>
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
+  <div class="resultado" *ngIf="tema">
+    <h3>Tema Encontrado</h3>
+    <p>ID: {{tema.id}}</p>
+    <p>Nombre: {{tema.nombre}}</p>
+    <p>Descripción: {{tema.descripcion}}</p>
+  </div>
+</div>

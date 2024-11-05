@@ -1,0 +1,46 @@
+.estudiante-dashboard {
+  text-align: center;
+  padding: 20px;
+}
+
+.estudiante-dashboard h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 20px;
+  justify-content: center;
+}
+
+.grid-item {
+  border: 2px solid #4a90e2;
+  border-radius: 15px;
+  background-color: #d6e9f9;
+  padding: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.grid-item:hover {
+  background-color: #aed0f1;
+}
+
+.action-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #357ab8;
+}

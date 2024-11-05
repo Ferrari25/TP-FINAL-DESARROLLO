@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Buscar Cursos por Fecha</h2>
+
+  <form [formGroup]="cursoDateForm" (ngSubmit)="buscarCursos()">
+    <div class="form-group">
+      <label for="fechaFin">Fecha de Fin: </label>
+      <input id="fechaFin" formControlName="fechaFin" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Buscar Cursos</button>
+    </div>
+  </form>
+
+  <div *ngIf="cursos.length > 0" class="results-section">
+    <h3>Resultados:</h3>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Curso</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha Fin</th>
+        <th>Docente</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let curso of cursos">
+        <td>{{ curso.tema.nombre }}</td>
+        <td>{{ curso.fechaInicio }}</td>
+        <td>{{ curso.fechaFin}}</td>
+        <td>{{ curso.docente.nombre }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="cursos.length === 0 && formSubmitted" class="no-results">
+    <p>No se encontraron cursos en la fecha seleccionada.</p>
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <h2>Agregar Tema</h2>
+  <form (submit)="onSubmit()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="tema.nombre" name="nombre" required>
+
+    <label for="descripcion">Descripción:</label>
+    <input type="text" id="descripcion" [(ngModel)]="tema.descripcion" name="descripcion" required>
+
+    <button type="submit">Agregar</button>
+  </form>
+</div>

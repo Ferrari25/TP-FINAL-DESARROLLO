@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Listado de Temas</h2>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Opciones</th>
+
+      <!-- Agrega más columnas si tu modelo de Estudiante tiene más campos -->
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tema of temas">
+      <td>{{ tema.id }}</td>
+      <td>{{ tema.nombre }}</td>
+      <td>{{ tema.descripcion }}</td>
+
+        <td>
+          <button class="action-button update" [routerLink]="['/update-tema', tema.id]"> Update </button>
+          <button class="action-button delete"  [routerLink]="['/delete-tema', tema.id]"> Delete </button>
+        </td>
+
+     </tr>
+    </tbody>
+  </table>
+</div>

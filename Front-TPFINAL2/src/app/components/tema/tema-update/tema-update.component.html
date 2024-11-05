@@ -1,0 +1,15 @@
+<div>
+  <h2>Actualizar Tema</h2>
+  <form (ngSubmit)="onUpdateTema()">
+    <label for="idActualizar">ID:</label>
+    <input type="number" id="idActualizar" [(ngModel)]="idActualizar" name="idActualizar" required>
+
+    <label for="nombreActualizar">Nombre:</label>
+    <input type="text" id="nombreActualizar" [(ngModel)]="temaActualizar.nombre" name="nombreActualizar" required>
+
+    <label for="descripcionActualizar">Descripción:</label>
+    <input type="text" id="descripcionActualizar" [(ngModel)]="temaActualizar.descripcion" name="descripcionActualizar" required>
+
+    <button type="submit">Actualizar</button>
+  </form>
+</div>

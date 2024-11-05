@@ -1,0 +1,48 @@
+<div>
+  <h2>Agregar Curso</h2>
+  <form (submit)="onSubmit()">
+    <!-- Tema -->
+    <label for="tema">Tema:</label>
+    <label>Nombre</label>
+    <input type="text" id="tema" [(ngModel)]="curso.tema.nombre" name="tema" placeholder="Programación" required>
+    <label>Descripción</label>
+    <input type="text" id="descripcion" [(ngModel)]="curso.tema.descripcion" name="descripcion" placeholder="Aprender a codificar" required>
+
+    <!-- Fechas -->
+    <label for="fechaInicio">Fecha de Inicio:</label>
+    <input type="date" id="fechaInicio" [(ngModel)]="curso.fechaInicio" name="fechaInicio" required>
+
+    <label for="fechaFin">Fecha de Fin:</label>
+    <input type="date" id="fechaFin" [(ngModel)]="curso.fechaFin" name="fechaFin" required>
+
+    <!-- Docente -->
+    <label for="docente">Docente:</label>
+    <label>Nombre</label>
+    <input type="text" id="docente" [(ngModel)]="curso.docente.nombre" name="docente" placeholder="Nombre" required>
+    <label>Legajo</label>
+    <input type="number" id="legajo" [(ngModel)]="curso.docente.legajo" name="legajo" required>
+
+    <!-- Precio -->
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" [(ngModel)]="curso.precio" name="precio" required>
+
+    <!-- Lista desplegable de estudiantes -->
+    <label for="estudiante">Agregar Estudiante:</label>
+    <select [(ngModel)]="estudianteSeleccionado" name="estudiante" id="estudiante">
+      <option *ngFor="let estudiante of estudiantes" [ngValue]="estudiante">{{ estudiante.nombre }}</option>
+    </select>
+    <button type="button" (click)="agregarEstudiante()">Agregar Estudiante</button>
+
+    <!-- Mostrar lista de estudiantes agregados -->
+    <h3>Estudiantes agregados:</h3>
+    <ul>
+      <li *ngFor="let estudiante of curso.estudiantes; let i = index">{{ estudiante.nombre }}
+<!--        {{ estudiante.nombre }} - {{ estudiante.fechaNacimiento }}-->
+        <button type="button" (click)="eliminarEstudiante(i)">Eliminar</button>
+      </li>
+    </ul>
+
+    <!-- Botón submit -->
+    <button type="submit">Agregar Curso</button>
+  </form>
+</div>

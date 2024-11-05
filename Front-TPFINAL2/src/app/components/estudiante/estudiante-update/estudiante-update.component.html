@@ -1,0 +1,16 @@
+
+<div>
+  <h2>Actualizar Estudiante</h2>
+  <form (ngSubmit)="onUpdateEstudiante()">
+    <label for="idActualizar">ID:</label>
+    <input type="number" id="idActualizar" [(ngModel)]="idActualizar" name="idActualizar" required>
+
+    <label for="nombreActualizar">Nombre:</label>
+    <input type="text" id="nombreActualizar" [(ngModel)]="estudianteActualizar.nombre" name="nombreActualizar" required>
+
+    <label for="fechaNacimientoActualizar">Fecha de Nacimiento:</label>
+    <input type="date" id="fechaNacimientoActualizar" [(ngModel)]="estudianteActualizar.fechaNacimiento" name="fechaNacimientoActualizar" required>
+
+    <button type="submit">Actualizar</button>
+  </form>
+</div>

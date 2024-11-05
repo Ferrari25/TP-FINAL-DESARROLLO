@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Listado de Cursos</h2>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tema</th>
+      <th>Docente</th>
+      <th>Fecha de Inicio</th>
+      <th>Fecha de Fin</th>
+      <th>Precio</th>
+      <th>Estudiantes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let curso of cursos">
+      <td>{{ curso.id }}</td>
+      <td>{{ curso.tema.nombre }}</td>
+      <td>{{ curso.docente.nombre }}</td>
+      <td>{{ curso.fechaInicio }}</td>
+      <td>{{ curso.fechaFin }}</td>
+      <td>{{"$ " + curso.precio }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let estudiante of curso.estudiantes">{{ estudiante.nombre }}</li>
+        </ul>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
