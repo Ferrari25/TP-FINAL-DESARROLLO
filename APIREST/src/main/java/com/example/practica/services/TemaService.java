@@ -18,13 +18,13 @@ public class TemaService {
     public Tema saveTema(Tema tema) {return temaRepository.save(tema);}
 
     public Optional<Tema> getById(Long id) {
-        Optional<Tema> tema = temaRepository.findById(id);
-        System.out.println("Tema recuperado: " + tema);
+        System.out.println("Tema recuperado: ");
         return temaRepository.findById(id);
     }
 
     public Tema updateTema(Tema request, Long id) {
-        Tema tema = temaRepository.findById(id).orElseThrow(() -> new RuntimeException("tema no encontrado"));
+        Tema tema = temaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("tema no encontrado"));
         tema.setNombre(request.getNombre());
         tema.setDescripcion(request.getDescripcion());
         return temaRepository.save(tema);

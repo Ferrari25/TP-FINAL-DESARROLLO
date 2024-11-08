@@ -4,19 +4,19 @@
   <table class="table">
     <thead>
     <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th>Opciones</th>
+      <th id="th-id">ID</th>
+      <th id="th-nombre">Nombre</th>
+      <th id="th-descripcion">Descripcion</th>
+      <th >Opciones</th>
 
       <!-- Agrega más columnas si tu modelo de Estudiante tiene más campos -->
     </tr>
     </thead>
     <tbody>
       <tr *ngFor="let tema of temas">
-      <td>{{ tema.id }}</td>
-      <td>{{ tema.nombre }}</td>
-      <td>{{ tema.descripcion }}</td>
+      <td id="td-id">{{ tema.id }}</td>
+      <td id="td-nombre">{{ tema.nombre }}</td>
+      <td id="td-descripcion">{{ tema.descripcion }}</td>
 
         <td>
           <button class="action-button update" [routerLink]="['/update-tema', tema.id]"> Update </button>

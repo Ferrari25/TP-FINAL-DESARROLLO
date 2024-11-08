@@ -1,6 +1,7 @@
 package com.example.practica.controllers;
 
 import com.example.practica.models.Curso;
+import com.example.practica.models.Estudiante;
 import com.example.practica.services.CursoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -79,4 +80,6 @@ public class CursoController {
             return ResponseEntity.ok(cursos);
         }
     }
+
+
 }

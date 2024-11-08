@@ -22,6 +22,7 @@ export class DocenteService {
     return this.http.post<Docente>(this.apiUrl, docente);
   }
   deleteDocente(id: number): Observable<void> {
+    alert("Docente con id:  " + id + "  eliminado");
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
@@ -30,12 +31,12 @@ export class DocenteService {
   }
 
   updateDocente(id: number | undefined, docente: Docente | undefined): Observable<Docente> {
+    alert("Docente con id:  " + id + "  actualizado");
     return this.http.put<Docente>(`${this.apiUrl}/${id}`, docente);
   }
 
   getEstudiantesPorLegajoDocente(legajo: number): Observable<Estudiante[]> {
-    return this.http.get<Estudiante[]>(`${this.apiUrl}/legajo/${legajo}/estudiantes`,
-    );
+    return this.http.get<Estudiante[]>(`${this.apiUrl}/${legajo}/estudiantes`);
   }
 
 }

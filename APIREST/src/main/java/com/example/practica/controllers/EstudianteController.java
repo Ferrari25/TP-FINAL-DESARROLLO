@@ -24,7 +24,7 @@ public class EstudianteController {
 	private EstudianteService estudianteService;
 
 	@GetMapping
-	public ArrayList<Estudiante> getEstudiantes()
+	public List<Estudiante> getEstudiantes()
 	{
 		return this.estudianteService.getEstudiantes();
 	}

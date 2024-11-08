@@ -18,8 +18,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
   ],
   imports: [
-    BrowserModule,BrowserAnimationsModule,
-    CommonModule,AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    AppRoutingModule,
     EstudianteListComponent,
     DocenteListComponent,
     TemasListComponent,
@@ -30,6 +32,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     TemaGetByIdComponent,
     TemaUpdateComponent,
     DashboardComponent,
+
   ],
   providers: [],
   bootstrap: []

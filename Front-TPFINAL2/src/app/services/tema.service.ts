@@ -19,7 +19,7 @@ export class TemaService {
     return this.http.post<Tema>(this.apiUrl, tema);
   }
   deleteTema(id: number): Observable<void> {
-    alert("TEMA ELIMINADO")
+    alert("Tema con id:  " + id + "  Eliminado");
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
@@ -28,6 +28,7 @@ export class TemaService {
   }
 
   updateTema(id: number | undefined, tema: Tema | undefined): Observable<Tema> {
+    alert("Tema con id:  " + id + "  actualizado");
      return this.http.put<Tema>(`${this.apiUrl}/${id}`, tema);
   }
 

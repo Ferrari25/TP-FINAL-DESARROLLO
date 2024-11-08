@@ -21,7 +21,7 @@ public class DocenteController {
     private DocenteService docenteService;
 
     @GetMapping
-    public ArrayList<Docente> getDocentes(){
+    public List<Docente> getDocentes(){
         return this.docenteService.getAllDocentes();
     }
 
@@ -37,7 +37,7 @@ public class DocenteController {
 
     @GetMapping(path="/{id}")
     public Optional<Docente> getDocenteById(@PathVariable( "id")Long id){
-        return this.docenteService.getById(id);
+        return this.docenteService.getDocenteById(id);
     }
 
     @PutMapping(path="/{id}")
@@ -63,7 +63,15 @@ public class DocenteController {
         else {return "ERROR AL ELMINAR DOCENTE ";}
     }
 
+    @GetMapping("/{legajo}/estudiantes")
+    public ResponseEntity<List<Estudiante>> getEstudiantesByDocenteLegajo(@PathVariable("legajo") Long legajo) {
+        List<Estudiante> estudiantes = docenteService.getEstudianteByDocenteLegajo(legajo);
+        if (estudiantes.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(estudiantes);
+    }
 
-    
+    //localhost:8080/api/cursos/1001/estudiantes
 
 }

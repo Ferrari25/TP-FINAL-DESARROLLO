@@ -17,7 +17,7 @@ public class EstudianteService {
 	@Autowired
 	IEstudianteRepository studentRepository;
 	
-	public ArrayList<Estudiante> getEstudiantes(){return (ArrayList<Estudiante>) studentRepository.findAll();}
+	public List<Estudiante> getEstudiantes(){return studentRepository.findAll();}
 
 	public Estudiante saveStudent(Estudiante student) {
 		try {
@@ -33,23 +33,19 @@ public class EstudianteService {
 	}
 
 	public Estudiante updateEstudiante(Estudiante request, Long id) {
-		Estudiante student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student not found"));
-
-		student.setNombre(request.getNombre());
-		student.setFechaNacimiento(request.getFechaNacimiento());
-
-		return studentRepository.save(student);
+		Estudiante estudiante = studentRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("estudiante not found"));
+		estudiante.setNombre(request.getNombre());
+		estudiante.setFechaNacimiento(request.getFechaNacimiento());
+		return studentRepository.save(estudiante);
 	}
 
 	public Boolean deleteEstudiante(Long id) {
-		
 		try { 
 			studentRepository.deleteById(id);
 			return true;
 		}
-		catch (Exception e) { 
-			return false;
-		}
+		catch (Exception e) {return false;}
 		}
 
 	public List<Estudiante> findByDocenteLegajo(Long legajo) {

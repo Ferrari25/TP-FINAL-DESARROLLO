@@ -26,11 +26,12 @@ export class EstudianteService {
   }
 
   deleteEstudiante(id: number | undefined): Observable<void> {
-    alert("Estudiante con id" + id + "eliminado");
+    alert("Estudiante con id:  " + id + "  eliminado");
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
   updateEstudiante(id: number | undefined, estudiante: Estudiante | undefined): Observable<Estudiante> {
+    alert("Estudiante con id:  " + id + "  actualizado");
     return this.http.put<Estudiante>(`${this.apiUrl}/${id}`, estudiante);
   }
 

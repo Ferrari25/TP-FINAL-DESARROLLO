@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface IDocenteRepository extends JpaRepository<Docente, Long> {
-    /*Optional<Docente> findByLegajo(Integer legajo);*/
+    Optional<Docente> findByLegajo(Integer legajo);
 }

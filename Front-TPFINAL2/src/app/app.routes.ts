@@ -22,6 +22,7 @@ import {TemaComponent} from "./components/tema/tema.component";
 import {CursoComponent} from "./components/curso/curso.component";
 import {CursoDateComponent} from "./components/curso/curso-date/curso-date.component";
 import {EstudiantePorLegajoComponent} from "./components/docente/estudiante-por-legajo/estudiante-por-legajo.component";
+import {InicioComponent} from "./components/inicio/inicio.component";
 
 
 
@@ -35,6 +36,8 @@ export const routes: Routes = [
 
   { path: 'update-tema/:id', component: TemaUpdateComponent },
   { path: 'delete-tema/:id', component: TemaDeleteComponent },
+
+  { path: 'inicio', component: InicioComponent },
 
 
 

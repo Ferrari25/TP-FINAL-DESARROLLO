@@ -21,7 +21,6 @@ public class TemaController {
 
     @GetMapping
     public ArrayList<Tema> getTema() {
-
         return this.temaService.getAllTemas();
     }
 
@@ -40,28 +39,27 @@ public class TemaController {
 
     @GetMapping(path="/{id}")
     public Optional<Tema> getTemaById(@PathVariable( "id")Long id){
-
         return this.temaService.getById(id);
     }
 
 
     @PutMapping(path="/{id}")
     public ResponseEntity<Tema> updateTema(@PathVariable("id")Long id, @RequestBody Tema tema){
-        Tema updateTema = temaService.updateTema(tema,id);
-        if(updateTema != null){
-            System.out.println("TEMA ACTUALIZADO PARA EL TEMA CON ID: "+id);
-            return ResponseEntity.ok(updateTema);
-        } else {
-            System.out.println("ERROR ! AL INTENTAR ACTUALIZAR EL TEMA CON ID: "+id);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        try {
+            Tema updatedTema = temaService.updateTema(tema,id);
+            return ResponseEntity.ok(updatedTema);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
 
     @DeleteMapping(path="/{id}")
-    public String deleteTema(@PathVariable("id") Long id) {
-        boolean ok= this.temaService.deleteTema(id);
-        if (ok) return "USUARIO CON ID: " + id + "ELIMINADOR";
-        else return "ERROR AL ELIMINAR USUARIO CON ID: " + id;
+    public ResponseEntity<String> deleteTema(@PathVariable("id") Long id) {
+        if (temaService.deleteTema(id)) {
+            return ResponseEntity.ok("TEMA WITH ID " + id + " DELETED");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ERROR DELETING TEMA");
+        }
     }
 
 }

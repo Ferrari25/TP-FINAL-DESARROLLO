@@ -31,7 +31,7 @@ h2 {
 
 /* Estilos para el encabezado de la tabla */
 .table th {
-  background-color: #4CAF50; /* Color del encabezado */
+  background-color: #429dd5; /* Color del encabezado */
   color: white;
 }
 
@@ -80,11 +80,11 @@ h2 {
 
 /* Estilo para el botón de "Agregar" */
 .action-button.add {
-  background-color: #28a745; /* Color verde */
+  background-color: #3696e3; /* Color verde */
   color: white; /* Color del texto */
 }
 
 /* Efecto al pasar el cursor sobre el botón de "Agregar" */
 .action-button.add:hover {
-  background-color: #218838; /* Color verde más oscuro */
+  background-color: #3197cd; /* Color verde más oscuro */
 }

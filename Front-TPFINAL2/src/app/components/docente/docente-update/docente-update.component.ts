@@ -5,7 +5,7 @@ import {TemaService} from "../../../services/tema.service";
 import {Docente} from "../../../models/docente.model";
 import {DocenteService} from "../../../services/docente.service";
 import {Estudiante} from "../../../models/estudiante.model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-docente-update',
@@ -23,7 +23,10 @@ export class DocenteUpdateComponent implements OnInit{
   docenteActualizar: Docente = new Docente(0, '', 0);
   public idActualizar: number | undefined;
 
-  constructor(private docenteService: DocenteService,private route: ActivatedRoute) {}
+  constructor(
+    private docenteService: DocenteService,
+    private route: ActivatedRoute,
+    private router: Router) {}
 
   ngOnInit() {
     // Captura el ID de la URL
@@ -38,8 +41,13 @@ export class DocenteUpdateComponent implements OnInit{
 
 
   onUpdateDocente() {
-    this.docenteService.updateDocente(this.idActualizar, this.docenteActualizar).subscribe((data: Docente) => {
-      alert('Docente actualizado exitosamente');
-    }, (error: any) => {console.error('Error updating docente', error);});
+    this.docenteService.updateDocente(this.idActualizar, this.docenteActualizar).subscribe(
+      (data: Docente) => {
+        this.router.navigate(['/docente/view-docente']); // Asegúrate de que esta ruta sea correcta
+      },
+      (error: any) => {
+        console.error('Error updating docente', error);
+      }
+    );
   }
 }

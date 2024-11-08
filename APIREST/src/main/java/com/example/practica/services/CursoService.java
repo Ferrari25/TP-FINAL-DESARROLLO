@@ -31,7 +31,9 @@ public class CursoService {
     private IEstudianteRepository estudianteRepository;
 
     public ArrayList<Curso> getAllCursos(){return (ArrayList<Curso>) cursoRepository.findAll();}
+
     public Optional<Curso> getById(Long id) {return cursoRepository.findById(id);}
+
     public List<Curso> getCursosByDate(LocalDate fechaFin) {return cursoRepository.findByFechaFin(fechaFin);}
 
     public Curso saveCurso(Curso curso) {
@@ -63,7 +65,8 @@ public class CursoService {
     }
 
     public Curso updateById(Curso request, Long id) {
-        Curso curso = cursoRepository.findById(id).orElseThrow(() -> new RuntimeException("Curso not found"));
+        Curso curso = cursoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Curso not found"));
 
         Docente existingDocente = docenteRepository.findById(request.getDocente().getId())
                 .orElseThrow(() -> new RuntimeException("Docente not found"));
@@ -92,9 +95,7 @@ public class CursoService {
         try {
             cursoRepository.deleteById(id);
             return true;
-        } catch (Exception e) {
-            return false;
-        }
+        } catch (Exception e) {return false;}
     }
 
 

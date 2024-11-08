@@ -1,10 +1,9 @@
-
 <div class="container">
-  <h2>Buscar Estudiantes por legajo Docente</h2>
+  <h2>Buscar Estudiantes por Legajo de Docente</h2>
 
-  <form [formGroup]="docenteLegajoForm" (ngSubmit)="cargarEstudiantesPorDocente()">
+  <form [formGroup]="docenteLegajoForm" (ngSubmit)="obtenerEstudiantesPorLegajoDocente()">
     <div class="form-group">
-      <label for="docenteLegajo">Estudiantes por Legajo de Docente: </label>
+      <label for="docenteLegajo">Legajo del Docente:</label>
       <input id="docenteLegajo" formControlName="docenteLegajo" type="number" class="form-control" />
     </div>
 
@@ -14,14 +13,13 @@
   </form>
 
   <div *ngIf="estudiantes.length > 0" class="results-section">
-    <h3>Resultados:</h3>
+    <h3>Resultados para el docente: {{ docenteLegajo }}</h3>
     <table class="table">
       <thead>
       <tr>
         <th>Id</th>
         <th>Nombre</th>
         <th>Fecha de Nacimiento</th>
-        <th>Docente</th>
       </tr>
       </thead>
       <tbody>
@@ -35,6 +33,6 @@
   </div>
 
   <div *ngIf="estudiantes.length === 0 && formSubmitted" class="no-results">
-    <p>No se encontraron cursos en la fecha seleccionada.</p>
+    <p>No se encontraron estudiantes para el legajo del docente ingresado.</p>
   </div>
 </div>

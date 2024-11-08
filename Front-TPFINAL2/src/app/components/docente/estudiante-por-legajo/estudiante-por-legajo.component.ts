@@ -25,6 +25,7 @@ export class EstudiantePorLegajoComponent implements OnInit {
 
   estudiantes: Estudiante[] = [];
   docenteLegajo: number = 0;
+  nombreDocente: string = '';
 
   constructor(private docenteService: DocenteService,private fb: FormBuilder) {
 
@@ -38,17 +39,30 @@ export class EstudiantePorLegajoComponent implements OnInit {
     });
   }
 
-  cargarEstudiantesPorDocente(): void {
-    if (this.docenteLegajo) {
-      this.docenteService.getEstudiantesPorLegajoDocente(this.docenteLegajo).subscribe(
+  obtenerEstudiantesPorLegajoDocente(): void {
+    this.formSubmitted = true;
+    const legajoDocente = this.docenteLegajoForm.get('docenteLegajo')?.value;
+
+    if (legajoDocente) {
+      this.docenteService.getDocenteById(legajoDocente).subscribe((docente) => {
+        this.nombreDocente = docente.nombre;
+      })
+
+      this.docenteService.getEstudiantesPorLegajoDocente(legajoDocente).subscribe(
         (estudiantes) => (this.estudiantes = estudiantes),
-        (error) =>
-          console.error("Error cargando estudiantes por legajo del docente", error)
+        (error) => {
+          console.error("Error cargando estudiantes por legajo del docente", error);
+          this.estudiantes = [];
+        }
       );
     } else {
       this.estudiantes = [];
+      this.nombreDocente= "";
     }
   }
+
+
+
 }
 
 

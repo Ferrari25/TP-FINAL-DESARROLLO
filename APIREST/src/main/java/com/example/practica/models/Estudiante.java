@@ -24,10 +24,6 @@ public class Estudiante {
 	@JoinColumn(name = "docente_id") // El campo que relaciona al docente
 	private Docente docente;
 
-	// Relación Many-to-Many con Curso
-	@ManyToMany(mappedBy = "estudiantes")
-	@JsonBackReference // Evita la recursión infinita
-	private List<Curso> cursos = new ArrayList<>();
 
 	// Constructor vacío
 	public Estudiante() {}
@@ -43,12 +39,12 @@ public class Estudiante {
 	public Long getId() {return id;}
 	public String getNombre() {return nombre;}
 	public LocalDate getFechaNacimiento() {return fecha_nacimiento;}
-	public List<Curso> getCursos() { return cursos;}
+	//public List<Curso> getCursos() { return cursos;}
 
 	public void setId(Long id) {this.id = id;}
 	public void setNombre(String nombre) {this.nombre = nombre;}
 	public void setFechaNacimiento(LocalDate fechaNacimiento) {this.fecha_nacimiento = fechaNacimiento;}
-	public void setCursos(List<Curso> cursos) { this.cursos = cursos;}
+	//public void setCursos(List<Curso> cursos) { this.cursos = cursos;}
 }
 
 /*

@@ -25,7 +25,7 @@ h2 {
 
 .btn {
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color: #3176ac;
   color: white;
   border: none;
   border-radius: 4px;
@@ -33,7 +33,7 @@ h2 {
 }
 
 .btn:hover {
-  background-color: #45a049;
+  background-color: #3fa1ed;
 }
 
 .results-section {
@@ -55,7 +55,7 @@ h2 {
 }
 
 .table th {
-  background-color: #4caf50;
+  background-color: #3174da;
   color: white;
 }
 
