@@ -3,6 +3,7 @@ import {FormGroup, FormControl, ReactiveFormsModule, FormBuilder} from '@angular
 import {CursoService} from "../../../services/curso.service";
 import {Curso} from "../../../models/curso.model";
 import {DatePipe, NgForOf, NgIf} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-curso-date',
@@ -17,7 +18,9 @@ export class CursoDateComponent implements OnInit {
   cursos: Curso[] = [];
   formSubmitted: boolean | undefined;
 
-  constructor(private cursoService: CursoService,private fb: FormBuilder) {
+  constructor(private cursoService: CursoService,
+              private fb: FormBuilder,
+              private router: Router,) {
 
     this.cursoDateForm = new FormGroup({
       //fechaInicio: new FormControl(''),
@@ -47,4 +50,9 @@ export class CursoDateComponent implements OnInit {
       );
     }
   }
+
+  onCancel() {
+    this.router.navigate(['/curso/view-curso']);
+  }
+
 }

@@ -24,17 +24,33 @@ input {
   height: 25px;
 }
 
-button {
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los botones */
   margin-top: 20px;
+}
+
+button {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #da3939;
   color: white;
   font-size: 16px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #770101;
+button[type="submit"] {
+  background-color: #da3939; /* Rojo para el botón "Eliminar" */
+}
+
+button[type="submit"]:hover {
+  background-color: #770101; /* Rojo oscuro para el botón "Eliminar" al pasar el mouse */
+}
+
+button[type="button"] {
+  background-color: #6c757d; /* Gris para el botón "Cancelar" */
+}
+
+button[type="button"]:hover {
+  background-color: #5a6268; /* Gris oscuro para el botón "Cancelar" al pasar el mouse */
 }

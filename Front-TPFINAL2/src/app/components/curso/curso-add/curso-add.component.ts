@@ -92,4 +92,8 @@ export class CursoAddComponent implements OnInit {
       });
     }
   }
+
+  onCancel() {
+    this.router.navigate(['/curso/view-curso']);
+  }
 }

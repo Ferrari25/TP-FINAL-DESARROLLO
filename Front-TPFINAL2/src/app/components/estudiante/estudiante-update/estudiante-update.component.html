@@ -1,4 +1,3 @@
-
 <div>
   <h2>Actualizar Estudiante</h2>
   <form (ngSubmit)="onUpdateEstudiante()">
@@ -11,6 +10,9 @@
     <label for="fechaNacimientoActualizar">Fecha de Nacimiento:</label>
     <input type="date" id="fechaNacimientoActualizar" [(ngModel)]="estudianteActualizar.fechaNacimiento" name="fechaNacimientoActualizar" required>
 
-    <button type="submit">Actualizar</button>
+    <div class="button-group">
+      <button type="submit" class="btn-actualizar">Actualizar</button>
+      <button type="button" class="btn-cancelar" (click)="onCancel()">Cancelar</button>
+    </div>
   </form>
 </div>

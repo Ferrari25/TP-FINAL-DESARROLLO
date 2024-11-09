@@ -1,4 +1,3 @@
-
 form {
   display: flex;
   flex-direction: column;
@@ -25,17 +24,33 @@ input {
   height: 25px;
 }
 
-button {
+.button-group {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los botones */
   margin-top: 20px;
+}
+
+button {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #28a745;
   color: white;
   font-size: 16px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #218838;
+button.btn-actualizar {
+  background-color: #28a745; /* Verde para el botón "Actualizar" */
+}
+
+button.btn-actualizar:hover {
+  background-color: #218838; /* Verde oscuro para el botón "Actualizar" al pasar el mouse */
+}
+
+button.btn-cancelar {
+  background-color: #dc3545; /* Rojo para el botón "Cancelar" */
+}
+
+button.btn-cancelar:hover {
+  background-color: #c82333; /* Rojo oscuro para el botón "Cancelar" al pasar el mouse */
 }

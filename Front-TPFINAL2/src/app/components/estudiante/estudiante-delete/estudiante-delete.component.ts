@@ -49,4 +49,7 @@ export class EstudianteDeleteComponent implements OnInit {
   }
 
 
+  onCancel() {
+    this.router.navigate(['/estudiante/view-estudiante']);
+  }
 }

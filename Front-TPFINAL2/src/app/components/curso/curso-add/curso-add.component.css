@@ -53,20 +53,37 @@
 }
 
 /* Estilo de botón */
-.btn {
+.btn-crear {
   display: inline-block;
   padding: 10px 20px;
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #52b62e;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-right: 10px;
 }
 
-.btn:hover {
-  background-color: #0056b3;
+.btn-cancel{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #da2f2f;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px
+}
+
+.btn-crear:hover {
+  background-color: #1c6a0e;
+}
+.btn-cancel:hover {
+  background-color: #770101;
 }
 
 /* Opcional: añadir espaciado entre los checkboxes de estudiantes */

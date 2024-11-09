@@ -50,6 +50,10 @@ export class EstudianteUpdateComponent implements OnInit {
       }
     );
   }
+
+  onCancel() {
+    this.router.navigate(['/estudiante/view-estudiante']);
+  }
 }
 
 

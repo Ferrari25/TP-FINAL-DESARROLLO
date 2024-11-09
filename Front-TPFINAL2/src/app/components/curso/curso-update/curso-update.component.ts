@@ -104,4 +104,9 @@ export class CursoUpdateComponent implements OnInit {
       }
     );
   }
+
+  onCancel() {
+    this.router.navigate(['/curso/view-curso']);
+  }
+
 }
