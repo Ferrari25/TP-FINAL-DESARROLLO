@@ -29,12 +29,4 @@ export class EstudianteListComponent implements OnInit {
     );
   }
 
-
-  eliminarEstudiante(estudiante: Estudiante) {
-
-  }
-
-  agregarEstudiante() {
-
-  }
 }

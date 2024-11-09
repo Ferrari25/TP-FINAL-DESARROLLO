@@ -45,3 +45,36 @@ ul {
 ul li {
   list-style-type: disc;
 }
+
+/* Estilo general para todos los botones */
+.action-button {
+  padding: 10px 15px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de la fuente */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar cursor al pasar por encima */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  margin-right: 5px;
+}
+
+/* Estilo para el botón de "Actualizar" */
+.action-button.update {
+  background-color: #fb862f; /* Color marrón */
+  color: white; /* Color del texto */
+}
+
+/* Efecto al pasar el cursor sobre el botón de "Actualizar" */
+.action-button.update:hover {
+  background-color: #e6a636; /* Color marrón más oscuro */
+}
+
+/* Estilo para el botón de "Eliminar" */
+.action-button.delete {
+  background-color: #dc3545; /* Color rojo */
+  color: white; /* Color del texto */
+}
+
+/* Efecto al pasar el cursor sobre el botón de "Eliminar" */
+.action-button.delete:hover {
+  background-color: #c82333; /* Color rojo más oscuro */
+}

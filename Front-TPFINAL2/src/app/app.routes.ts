@@ -28,15 +28,23 @@ import {InicioComponent} from "./components/inicio/inicio.component";
 
 export const routes: Routes = [
 
+  //ESTUDIANTES
   { path: 'update-estudiante/:id', component: EstudianteUpdateComponent },
   { path: 'delete-estudiante/:id', component: EstudianteDeleteComponent },
 
+  ///DOCENTES
   { path: 'update-docente/:id', component: DocenteUpdateComponent },
   { path: 'delete-docente/:id', component: DocenteDeleteComponent },
 
+  //TEMA
   { path: 'update-tema/:id', component: TemaUpdateComponent },
   { path: 'delete-tema/:id', component: TemaDeleteComponent },
 
+  //CURSOS
+  { path: 'update-curso/:id', component: CursoUpdateComponent },
+  { path: 'delete-curso/:id', component: CursoDeleteComponent },
+
+  //INICIO
   { path: 'inicio', component: InicioComponent },
 
 

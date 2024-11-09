@@ -24,7 +24,7 @@ export class CursoService {
     return this.http.post<Curso>(this.apiUrl, curso);
   }
 
-  updateCurso(id: number, curso: Curso): Observable<Curso> {
+    updateCurso(id: number | undefined, curso: Curso): Observable<Curso> {
     alert("Curso con id:  " + id + "  Actualizado");
     return this.http.put<Curso>(`${this.apiUrl}/${id}`, curso);
   }

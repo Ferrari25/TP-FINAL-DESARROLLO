@@ -1,24 +1,34 @@
 <div>
   <h2>Actualizar Curso</h2>
   <form (ngSubmit)="onUpdateCurso()">
-    <label for="id">ID del Curso:</label>
-    <input type="number" id="id" [(ngModel)]="curso.id" name="id" required>
+    <label for="idActualizar">ID:</label>
+    <input type="number" id="idActualizar" [(ngModel)]="idActualizar" name="idActualizar" required readonly>
 
-    <label for="tema">Tema:</label>
-    <input type="text" id="tema" [(ngModel)]="curso.tema.nombre" name="tema" required>
+    <label for="temaActualizar">Tema:</label>
+    <select id="temaActualizar" [(ngModel)]="cursoActualizar.tema.id" name="temaActualizar" required>
+      <option *ngFor="let tema of temas" [value]="tema.id">{{ tema.nombre }}</option>
+    </select>
 
-    <label for="fechaInicio">Fecha de Inicio:</label>
-    <input type="date" id="fechaInicio" [(ngModel)]="curso.fechaInicio" name="fechaInicio" required>
+    <label for="fechaInicioActualizar">Fecha de Inicio:</label>
+    <input type="date" id="fechaInicioActualizar" [(ngModel)]="cursoActualizar.fechaInicio" name="fechaInicioActualizar" required>
 
-    <label for="fechaFin">Fecha de Fin:</label>
-    <input type="date" id="fechaFin" [(ngModel)]="curso.fechaFin" name="fechaFin" required>
+    <label for="fechaFinActualizar">Fecha de Fin:</label>
+    <input type="date" id="fechaFinActualizar" [(ngModel)]="cursoActualizar.fechaFin" name="fechaFinActualizar" required>
 
-    <label for="docente">Docente:</label>
-    <input type="text" id="docente" [(ngModel)]="curso.docente.nombre" name="docente" required>
+    <label for="docenteActualizar">Docente:</label>
+    <select id="docenteActualizar" [(ngModel)]="cursoActualizar.docente.id" name="docenteActualizar" required>
+      <option *ngFor="let docente of docentes" [value]="docente.id">{{ docente.nombre }}</option>
+    </select>
 
-    <label for="precio">Precio:</label>
-    <input type="number" id="precio" [(ngModel)]="curso.precio" name="precio" required>
+    <label for="precioActualizar">Precio:</label>
+    <input type="number" id="precioActualizar" [(ngModel)]="cursoActualizar.precio" name="precioActualizar" required>
 
-    <button type="submit">Actualizar</button>
+    <label>Estudiantes:</label>
+    <div *ngFor="let estudiante of estudiantes">
+      <input type="checkbox" [value]="estudiante.id" (change)="onCheckboxChange($event, estudiante.id)" [checked]="estudiantesSeleccionados.has(estudiante.id)">
+      {{ estudiante.nombre }}
+    </div>
+
+    <button type="submit">Actualizar Curso</button>
   </form>
 </div>

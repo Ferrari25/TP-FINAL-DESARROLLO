@@ -11,22 +11,29 @@
       <th>Fecha de Fin</th>
       <th>Precio</th>
       <th>Estudiantes</th>
+      <th>Opciones</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let curso of cursos">
-      <td>{{ curso.id }}</td>
-      <td>{{ curso.tema.nombre }}</td>
-      <td>{{ curso.docente.nombre }}</td>
-      <td>{{ curso.fechaInicio }}</td>
-      <td>{{ curso.fechaFin }}</td>
-      <td>{{"$ " + curso.precio }}</td>
-      <td>
-        <ul>
-          <li *ngFor="let estudiante of curso.estudiantes">{{ estudiante.nombre }}</li>
-        </ul>
-      </td>
-    </tr>
+      <tr *ngFor="let curso of cursos">
+        <td>{{ curso.id }}</td>
+        <td>{{ curso.tema.nombre }}</td>
+        <td>{{ curso.docente.nombre }}</td>
+        <td>{{ curso.fechaInicio }}</td>
+        <td>{{ curso.fechaFin }}</td>
+        <td>{{"$ " + curso.precio }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let estudiante of curso.estudiantes">{{ estudiante.nombre }}</li>
+          </ul>
+        </td>
+
+        <td>
+          <button class="action-button update" [routerLink]="['/update-curso', curso.id]"> Update </button>
+          <button class="action-button delete"  [routerLink]="['/delete-curso', curso.id]"> Delete </button>
+        </td>
+
+      </tr>
     </tbody>
   </table>
 </div>
