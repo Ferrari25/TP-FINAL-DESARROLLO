@@ -1,60 +1,46 @@
 <div class="container">
-  <h2>Agregar Curso</h2>
-  <form (submit)="onSubmit()">
-    <!-- Tema -->
+  <form [formGroup]="cursoForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="tema">Tema:</label>
-      <input type="text" id="tema" [(ngModel)]="curso.tema.nombre" name="tema" placeholder="Programación Avanzada" required>
-    </div>
-    <div class="form-group">
-      <label for="descripcion">Descripción:</label>
-      <input type="text" id="descripcion" [(ngModel)]="curso.tema.descripcion" name="descripcion" placeholder="Curso intensivo sobre técnicas avanzadas de programación" required>
+      <label for="tema">Tema</label>
+      <div formGroupName="tema">
+        <select id="tema" formControlName="id" class="form-control">
+          <option *ngFor="let tema of temas" [value]="tema.id">{{ tema.nombre }}</option>
+        </select>
+      </div>
     </div>
 
-    <!-- Fechas -->
     <div class="form-group">
-      <label for="fechaInicio">Fecha de Inicio:</label>
-      <input type="date" id="fechaInicio" [(ngModel)]="curso.fechaInicio" name="fechaInicio" required>
-    </div>
-    <div class="form-group">
-      <label for="fechaFin">Fecha de Fin:</label>
-      <input type="date" id="fechaFin" [(ngModel)]="curso.fechaFin" name="fechaFin" required>
+      <label for="fechaInicio">Fecha de Inicio</label>
+      <input type="date" id="fechaInicio" formControlName="fechaInicio" class="form-control">
     </div>
 
-    <!-- Docente -->
     <div class="form-group">
-      <label for="docente">Docente:</label>
-      <input type="text" id="docente" [(ngModel)]="curso.docente.nombre" name="docente" placeholder="Juan Pérez" required>
-    </div>
-    <div class="form-group">
-      <label for="legajo">Legajo:</label>
-      <input type="number" id="legajo" [(ngModel)]="curso.docente.legajo" name="legajo" placeholder="12345" required>
+      <label for="fechaFin">Fecha de Fin</label>
+      <input type="date" id="fechaFin" formControlName="fechaFin" class="form-control">
     </div>
 
-    <!-- Precio -->
     <div class="form-group">
-      <label for="precio">Precio:</label>
-      <input type="number" id="precio" [(ngModel)]="curso.precio" name="precio" placeholder="1500" required>
+      <label for="docente">Docente</label>
+      <div formGroupName="docente">
+        <select id="docente" formControlName="id" class="form-control">
+          <option *ngFor="let docente of docentes" [value]="docente.id">{{ docente.nombre }}</option>
+        </select>
+      </div>
     </div>
 
-    <!-- Lista desplegable de estudiantes -->
     <div class="form-group">
-      <label for="estudiante">Agregar Estudiante:</label>
-      <select [(ngModel)]="estudianteSeleccionado" name="estudiante" id="estudiante">
-        <option *ngFor="let estudiante of estudiantes" [ngValue]="estudiante">{{ estudiante.nombre }}</option>
-      </select>
-      <button type="button" (click)="agregarEstudiante()">Agregar Estudiante</button>
+      <label for="precio">Precio</label>
+      <input type="number" id="precio" formControlName="precio" class="form-control">
     </div>
 
-    <!-- Mostrar lista de estudiantes agregados -->
-    <h3>Estudiantes agregados:</h3>
-    <ul>
-      <li *ngFor="let estudiante of curso.estudiantes; let i = index">{{ estudiante.nombre }}
-        <button type="button" (click)="eliminarEstudiante(i)">Eliminar</button>
-      </li>
-    </ul>
+    <div class="form-group">
+      <label>Estudiantes</label>
+      <div *ngFor="let estudiante of estudiantes">
+        <input type="checkbox" [value]="estudiante.id" (change)="onCheckboxChange($event, estudiante)">
+        {{ estudiante.nombre }}
+      </div>
+    </div>
 
-    <!-- Botón submit -->
-    <button type="submit" class="btn btn-primary">Agregar Curso</button>
+    <button type="submit" class="btn btn-primary">Crear Curso</button>
   </form>
 </div>
